@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>edX Roadmap Health — Week of Apr 14, 2026</title>
+<title>edX Roadmap Snapshot · April 23, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -47,6 +47,11 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); font
 .header-title strong { font-weight: 500; }
 .header-meta { font-size: 13px; color: var(--text-muted); }
 
+
+/* Weekly summary narrative */
+.weekly-summary { background: var(--edx-green-light); border: 1px solid var(--edx-green-border); border-radius: var(--r-lg); padding: 18px 22px; margin-bottom: 28px; }
+.weekly-summary p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+.weekly-summary strong { font-weight: 500; color: var(--text); }
 /* Metrics */
 .metrics { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 8px; margin-bottom: 16px; }
 .m { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 13px 14px; cursor: pointer; transition: border-color .12s, background .12s; }
@@ -163,6 +168,17 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); font
 .footer-lobs { display: flex; gap: 6px; flex-wrap: wrap; }
 .flob { font-family: var(--mono); font-size: 10px; color: var(--text-dim); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; }
 
+
+/* Two-tier card design */
+.init.attention-card { border-left: 3px solid var(--status-accent, var(--border)); }
+.init.attention-card.accent-red    { --status-accent: var(--red-border); border-left-color: var(--red-text); }
+.init.attention-card.accent-amber  { --status-accent: var(--amber-border); border-left-color: var(--amber-text); }
+.init.attention-card.accent-blocked{ --status-accent: var(--blocked-border); border-left-color: #888884; }
+.init.compact .init-tags { margin-top: 4px; }
+.init.compact .tldr { display: none; }
+.init.compact .init-top { padding: 10px 18px; }
+.init.compact.open .tldr { display: block; }
+
 @keyframes fadeUp { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:translateY(0)} }
 .init { animation: fadeUp .15s ease both; }
 @media(max-width:640px){ .metrics{grid-template-columns:repeat(3,1fr);} .header-title{font-size:19px;} }
@@ -172,18 +188,22 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); font
 <div class="page">
 
 <header class="header">
-  <h1 class="header-title">edX Roadmap Health — <strong>Week of Apr 14, 2026</strong></h1>
-  <div class="header-meta">Q2 2026 &nbsp;·&nbsp; 21 initiatives &nbsp;·&nbsp; Generated Apr 21, 2026</div>
+  <h1 class="header-title">edX Roadmap Snapshot &nbsp;·&nbsp; <strong>April 23, 2026</strong></h1>
+  <div class="header-meta">Q2 2026 &nbsp;·&nbsp; 21 initiatives &nbsp;·&nbsp; <a href="https://app.asana.com/1/9354602449151/project/1209380408708128/list/1209388736379907" target="_blank" style="color:var(--edx-green);text-decoration:none;border-bottom:1px solid var(--edx-green-border);">View full roadmap in Asana ↗</a></div>
 </header>
 
 <!-- Metrics: Total restored at position 1 -->
+<div class="weekly-summary">
+  <p>Four initiatives shipped this week: <strong>CYT Airline Module</strong> (Apr 22), <strong>Trending Industries</strong> (Apr 16), <strong>Automated Solution for 3XX/4XX</strong> (Apr 14), and <strong>Multi-currency Payment Acceptance</strong> (Apr 16). <strong>Comparison Tool</strong> and <strong>Upgrade LMS Upselling</strong> both recovered to On Track after resolving their final blockers — both are targeting launch today. On the other side, <strong>Homepage Trending Courses</strong> and <strong>Recently Viewed Products</strong> regressed, with QA issues driving both off track and no revised due dates set yet. Three initiatives remain blocked — <strong>Logistration Simplified Fields</strong> and <strong>Multi-Currency Display</strong> have been in this state since late 2025 and need active escalation; <strong>Subscriptions</strong> continues to wait on 2U. Seven initiatives were added to the roadmap following Q2 planning.</p>
+</div>
+
 <div class="metrics">
   <div class="m active" id="m-all"        onclick="setSF(null,'m-all')"><div class="m-label"><span class="dot d-all"></span>Total</div><div class="m-num" id="mn-all">21</div></div>
-  <div class="m"        id="m-ontrack"    onclick="setSF('On Track','m-ontrack')"><div class="m-label"><span class="dot d-green"></span>On track</div><div class="m-num" id="mn-ontrack">9</div></div>
-  <div class="m"        id="m-offtrack"   onclick="setSF('Off Track','m-offtrack')"><div class="m-label"><span class="dot d-red"></span>Off track</div><div class="m-num" id="mn-offtrack">2</div></div>
-  <div class="m"        id="m-atrisk"     onclick="setSF('At Risk','m-atrisk')"><div class="m-label"><span class="dot d-amber"></span>At risk</div><div class="m-num" id="mn-atrisk">1</div></div>
-  <div class="m"        id="m-blocked"    onclick="setSF('Blocked','m-blocked')"><div class="m-label"><span class="dot d-blocked"></span>Blocked</div><div class="m-num" id="mn-blocked">4</div></div>
-  <div class="m"        id="m-notstarted" onclick="setSF('Not Started','m-notstarted')"><div class="m-label"><span class="dot d-blue"></span>Not started</div><div class="m-num" id="mn-notstarted">5</div></div>
+  <div class="m"        id="m-ontrack"    onclick="setSF('On Track','m-ontrack')"><div class="m-label"><span class="dot d-green"></span>On track</div><div class="m-num" id="mn-ontrack">7</div></div>
+  <div class="m"        id="m-offtrack"   onclick="setSF('Off Track','m-offtrack')"><div class="m-label"><span class="dot d-red"></span>Off track</div><div class="m-num" id="mn-offtrack">3</div></div>
+  <div class="m"        id="m-atrisk"     onclick="setSF('At Risk','m-atrisk')"><div class="m-label"><span class="dot d-amber"></span>At risk</div><div class="m-num" id="mn-atrisk">0</div></div>
+  <div class="m"        id="m-blocked"    onclick="setSF('Blocked','m-blocked')"><div class="m-label"><span class="dot d-blocked"></span>Blocked</div><div class="m-num" id="mn-blocked">3</div></div>
+  <div class="m"        id="m-notstarted" onclick="setSF('Not Started','m-notstarted')"><div class="m-label"><span class="dot d-blue"></span>Not started</div><div class="m-num" id="mn-notstarted">7</div></div>
 </div>
 
 <div class="filter-bar">
@@ -198,19 +218,19 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); font
 
 <!-- Tabs: Pending ETA added here -->
 <div class="tab-bar">
-  <div class="tab active" id="tab-attention" onclick="setTab('attention',this)">Require Attention <span class="tc" id="tc-attention">7</span></div>
+  <div class="tab active" id="tab-attention" onclick="setTab('attention',this)">Require Attention <span class="tc" id="tc-attention">6</span></div>
   <div class="tab"        id="tab-due"       onclick="setTab('due',this)">Due soon <span class="tc" id="tc-due">4</span></div>
   <div class="tab"        id="tab-2u"        onclick="setTab('2u',this)">2U Dependencies <span class="tc" id="tc-2u">5</span></div>
-  <div class="tab"        id="tab-changes"   onclick="setTab('changes',this)">Changes this week <span class="tc" id="tc-changes">3</span></div>
+  <div class="tab"        id="tab-changes"   onclick="setTab('changes',this)">Changes this week <span class="tc" id="tc-changes">5</span></div>
   <div class="tab"        id="tab-noeta"     onclick="setTab('noeta',this)">Pending ETA <span class="tc" id="tc-noeta">4</span></div>
   <div class="tab"        id="tab-all"       onclick="setTab('all',this)">All initiatives <span class="tc" id="tc-all">21</span></div>
-  <div class="tab"        id="tab-completed" onclick="setTab('completed',this)">Completed <span class="tc" id="tc-completed">3</span></div>
+  <div class="tab"        id="tab-completed" onclick="setTab('completed',this)">Completed <span class="tc" id="tc-completed">4</span></div>
 </div>
 
 <main id="content"></main>
 
 <footer class="footer">
-  <div class="footer-l">edX Roadmap Health &nbsp;·&nbsp; Apr 21, 2026</div>
+  <div class="footer-l">edX Roadmap Health &nbsp;·&nbsp; Apr 23, 2026</div>
   <div class="footer-lobs">
     <span class="flob">Marketplace</span><span class="flob">OC</span>
     <span class="flob">eCommerce</span><span class="flob">Degrees</span><span class="flob">Discovery</span>
@@ -220,37 +240,207 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); font
 
 <script>
 const DATA = [
-  { name:"Comparison Tool", lob:"Marketplace", status:"Off Track", prevStatus:"Off Track", phase:"In Business QA", dueOn:"Apr 21", baseline:"Apr 01, 2026", eng:95, rebaselined:true, statusChange:"", twoU:false, tldr:"Multiple open QA blockers remain including unresolved search eventing issues and a chatbot overlay conflict on mobile blocking the compare CTA — 2U involvement required and no path forward confirmed.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900322", slack:"https://redventures.enterprise.slack.com/archives/C0AF1Q68N76", jira:"https://redventures.atlassian.net/browse/EDUN-9262" },
-  { name:"Find your Path DS Model Implementation", lob:"Marketplace", status:"Off Track", prevStatus:"Off Track", phase:"In Business QA", dueOn:"", baseline:"Mar 16, 2026", eng:100, rebaselined:false, statusChange:"", twoU:false, tldr:"Off track due to delays in Business QA. Alignment is happening today to move QA forward — outcome will determine the path to launch.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213184286940207", slack:"https://redventures.enterprise.slack.com/archives/C0AD104FB4M", jira:"https://redventures.atlassian.net/browse/EDUN-8515" },
-  { name:"Upgrade LMS Upselling", lob:"Marketplace", status:"Blocked", prevStatus:"Off Track", phase:"Ready To Launch", dueOn:"Apr 21", baseline:"Apr 14, 2026", eng:100, rebaselined:true, statusChange:"Off Track → Blocked", twoU:true, tldr:"Internal blockers resolved (Segment events and ConversionTracked fixes deployed), but QA remains blocked on 2U's side — team is waiting on 2U to confirm what access or documentation is still needed before key touchpoints can be tested.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213184286940223", slack:"https://redventures.enterprise.slack.com/archives/C0AFT1029U7", jira:"https://redventures.atlassian.net/browse/EDUN-9810" },
-  { name:"Logistration Simplified Fields", lob:"OC", status:"Blocked", prevStatus:"Blocked", phase:"In Business QA", dueOn:"", baseline:"Nov 10, 2025", eng:100, rebaselined:false, statusChange:"", twoU:true, tldr:"Tech is ready and QA is beginning, but has been blocked since November 2025 with no due date set. Needs visibility on what is gating final completion.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1211723783233133", slack:"https://redventures.enterprise.slack.com/archives/C09H3TQACHF", jira:"https://redventures.atlassian.net/browse/EDUN-7446" },
-  { name:"Multi-Currency Display on Detail Pages", lob:"eCommerce", status:"Blocked", prevStatus:"Blocked", phase:"In Business QA", dueOn:"", baseline:"Dec 08, 2025", eng:100, rebaselined:false, statusChange:"", twoU:false, tldr:"Blocked by the Multi-Currency Acceptance test which is currently in progress. Launch cannot proceed until that dependency clears.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1211723782419874", slack:"https://redventures.enterprise.slack.com/archives/C09B7QS886R", jira:"https://redventures.atlassian.net/browse/EDUN-6893" },
-  { name:"Subscriptions", lob:"OC", status:"Blocked", prevStatus:"Blocked", phase:"In Tech", dueOn:"", baseline:"Apr 23, 2026", eng:64, rebaselined:false, statusChange:"", twoU:false, tldr:"Blocked by 2U for Q2 — waiting on updates and next steps from 2U to proceed. No due date confirmed.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900350", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-8050" },
-  { name:"Geo Pricing (Expanding Scope)", lob:"eCommerce", status:"At Risk", prevStatus:"", phase:"In Creative", dueOn:"May 05", baseline:"May 05, 2026", eng:6, rebaselined:false, statusChange:"", twoU:false, tldr:"At risk because the scope expansion requires 2U's partnerships team to obtain partner approval before work can proceed. Timeline depends on how quickly 2U can secure sign-off.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070318169896", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-10663" },
-  { name:"Recently Viewed Products (Non-CDP)", lob:"Marketplace", status:"On Track", prevStatus:"At Risk", phase:"In Business QA", dueOn:"Apr 20", baseline:"Apr 09, 2026", eng:58, rebaselined:false, statusChange:"At Risk → On Track", twoU:false, tldr:"Recovered from At Risk to On Track this week. In Business QA with due date Apr 20.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900381", slack:"https://redventures.enterprise.slack.com/archives/C0AKN88KZHT", jira:"https://redventures.atlassian.net/browse/EDUN-9982" },
-  { name:"Straight to Checkout", lob:"OC", status:"On Track", prevStatus:"On Track", phase:"In Business QA", dueOn:"Apr 21", baseline:"Apr 07, 2026", eng:100, rebaselined:false, statusChange:"", twoU:false, tldr:"Active QA this week — team confirmed it's on their radar. Testable in staging via monarchPreview flag on any course detail page.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213436797746802", slack:"https://redventures.enterprise.slack.com/archives/C0AJPEQ817F", jira:"https://redventures.atlassian.net/browse/EDUN-9765" },
-  { name:"Homepage Trending Courses", lob:"Marketplace", status:"On Track", prevStatus:"On Track", phase:"In Business QA", dueOn:"Apr 21", baseline:"Apr 21, 2026", eng:76, rebaselined:false, statusChange:"", twoU:false, tldr:"QA pass completed with no UI/UX issues. A few eventing and Monarch config questions flagged and being worked through. New product card list ready for QA in staging.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900303", slack:"https://redventures.enterprise.slack.com/archives/C0AG6CT0YLE", jira:"https://redventures.atlassian.net/browse/EDUN-10012" },
-  { name:"Superlatives on Product Cards", lob:"Marketplace", status:"On Track", prevStatus:"On Track", phase:"Ready To Launch", dueOn:"Apr 21", baseline:"Apr 07, 2026", eng:100, rebaselined:true, statusChange:"", twoU:false, tldr:"Eventing QA completed successfully. Sorting inconsistency on search results investigated and confirmed not a launch blocker — team aligned to monitor alongside broader search changes.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213184286940235", slack:"https://redventures.enterprise.slack.com/archives/C0AG22U9EUB", jira:"https://redventures.atlassian.net/browse/EDUN-10043" },
-  { name:"CYT Airline Module (3 offerings)", lob:"OC", status:"On Track", prevStatus:"On Track", phase:"Ready To Launch", dueOn:"Apr 23", baseline:"Mar 31, 2026", eng:100, rebaselined:true, statusChange:"", twoU:false, tldr:"Events QA completed in prod with all working as expected. Targeting Thursday launch — changes pushed to prod and eventing confirmed healthy.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900295", slack:"https://redventures.enterprise.slack.com/archives/C0AFT1BCXAB", jira:"https://redventures.atlassian.net/browse/EDUN-10024" },
-  { name:"Redesign Promo Banner", lob:"OC", status:"On Track", prevStatus:"On Track", phase:"In Tech", dueOn:"May 05", baseline:"Mar 11, 2026", eng:45, rebaselined:false, statusChange:"", twoU:false, tldr:"Remaining work pushed to Sprint 8 (Apr 15–28) due to extended team absence. On track for May 5 due date. New dev resource taking over remaining work.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900311", slack:"https://redventures.enterprise.slack.com/archives/C0AFTPJBVS7", jira:"https://redventures.atlassian.net/browse/EDUN-9264" },
-  { name:"Shift Post Lead ULRs to RV Experiences", lob:"Degrees", status:"On Track", prevStatus:"", phase:"In Tech", dueOn:"May 12", baseline:"May 12, 2026", eng:0, rebaselined:false, statusChange:"", twoU:true, tldr:"Newly added to roadmap. Engineering just getting underway with a May 12 target. Has 2U dependency.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526582", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-11011" },
-  { name:"Promo on LMS/LD", lob:"Marketplace", status:"On Track", prevStatus:"", phase:"In Creative", dueOn:"May 20", baseline:"May 20, 2026", eng:0, rebaselined:false, statusChange:"", twoU:true, tldr:"In Creative phase targeting May 20. Has a 2U dependency — 2U needs to enable plug-in placements before this can launch.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070318169905", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-11150" },
-  { name:"Spanish Translations", lob:"Discovery", status:"On Track", prevStatus:"Not Started", phase:"In Tech", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:18, rebaselined:true, statusChange:"Not Started → On Track", twoU:false, tldr:"Moved from Not Started to On Track this week. Engineering underway at 18% with a Jul 13 target.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900337", slack:"https://redventures.enterprise.slack.com/archives/C0AB63K0B0U", jira:"https://redventures.atlassian.net/browse/EDUN-9263" },
-  { name:"Currency Acceptance", lob:"eCommerce", status:"Not Started", prevStatus:"", phase:"Not Started", dueOn:"Jun 02", baseline:"Jun 02, 2026", eng:0, rebaselined:false, statusChange:"", twoU:false, tldr:"Not yet started. Targeting Jun 2.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070318169914", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-10662" },
-  { name:"LMS/LD Upgrade Modal Iterations", lob:"Marketplace", status:"Not Started", prevStatus:"", phase:"Not Started", dueOn:"Jun 17", baseline:"Jun 17, 2026", eng:0, rebaselined:false, statusChange:"", twoU:true, tldr:"Not yet started. Targeting Jun 17. Has 2U dependency.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526548", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-11149" },
-  { name:"Comparison Tool Iterations (PDP + Search)", lob:"Marketplace", status:"Not Started", prevStatus:"", phase:"Not Started", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:0, rebaselined:false, statusChange:"", twoU:false, tldr:"Not yet started. Targeting Jul 13.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526572", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-10628" },
-  { name:"Product Cards DE Configurability", lob:"Marketplace", status:"Not Started", prevStatus:"", phase:"Not Started", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:0, rebaselined:false, statusChange:"", twoU:false, tldr:"Not yet started. Targeting Jul 13.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526566", slack:"", jira:"https://redventures.atlassian.net/browse/EDUN-10643" },
-  { name:"Recommendation Spotlight + Data Science Model", lob:"Marketplace", status:"Not Started", prevStatus:"", phase:"Not Started", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:null, rebaselined:false, statusChange:"", twoU:false, tldr:"Not yet started. Targeting Jul 13.", asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526557", slack:"", jira:"" }
+  {
+    name:"Find your Path DS Model Implementation", lob:"Marketplace", status:"Off Track", prevStatus:"Off Track",
+    phase:"In Business QA", dueOn:"", baseline:"Mar 16, 2026", eng:100,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Still off track in Business QA with no due date set. Engineering is complete at 100% — the blocker is on the QA side. Test links are available but QA has not formally kicked off. Next step: confirm QA start date and set a target launch date.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213184286940207",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AD104FB4M",
+    jira:"https://redventures.atlassian.net/browse/EDUN-8515"
+  },
+  {
+    name:"Homepage Trending Courses", lob:"Marketplace", status:"Off Track", prevStatus:"On Track",
+    phase:"In Business QA", dueOn:"", baseline:"Apr 21, 2026",eng:63,
+    rebaselined:false, statusChange:"On Track → Off Track", twoU:false,
+    tldr:"Moved from On Track to Off Track this week. QA surfaced Monarch configurability gaps (missing default product card behavior) and separate eventing issues. Three areas need resolution before acceptance: default product config, eventing fixes, and open QA items. No due date set. Next step: align on prioritized fix list and revised target.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900303",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AG6CT0YLE",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10012"
+  },
+  {
+    name:"Recently Viewed Products (Non-CDP)", lob:"Marketplace", status:"Off Track", prevStatus:"At Risk",
+    phase:"In Business QA", dueOn:"", baseline:"Apr 09, 2026", eng:58,
+    rebaselined:false, statusChange:"At Risk → Off Track", twoU:false,
+    tldr:"Regressed from At Risk to Off Track this week — was briefly On Track last week. Now past baseline with no due date set and still in Business QA at 58% engineering. Context on what caused the regression is limited. Next step: identify the specific blocker and set a new target date.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900381",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AKN88KZHT",
+    jira:"https://redventures.atlassian.net/browse/EDUN-9982"
+  },
+  {
+    name:"Logistration Simplified Fields", lob:"OC", status:"Blocked", prevStatus:"Blocked",
+    phase:"In Business QA", dueOn:"", baseline:"Nov 10, 2025", eng:100,
+    rebaselined:false, statusChange:"", twoU:true,
+    tldr:"Tech complete and QA was set to begin — but this has been blocked since November 2025 with no due date. Has been in this state for over 5 months. Next step: escalate to confirm whether QA has actually started and what is preventing a launch date from being set.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1211723783233133",
+    slack:"https://redventures.enterprise.slack.com/archives/C09H3TQACHF",
+    jira:"https://redventures.atlassian.net/browse/EDUN-7446"
+  },
+  {
+    name:"Multi-Currency Display on Detail Pages", lob:"eCommerce", status:"Blocked", prevStatus:"Blocked",
+    phase:"In Business QA", dueOn:"", baseline:"Dec 08, 2025", eng:100,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Blocked since December 2025 — over 4 months with no movement. Engineering is complete. Blocked by the Multi-Currency Acceptance dependency which completed this week. Next step: confirm whether the dependency clearing unblocks QA and set a launch date.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1211723782419874",
+    slack:"https://redventures.enterprise.slack.com/archives/C09B7QS886R",
+    jira:"https://redventures.atlassian.net/browse/EDUN-6893"
+  },
+  {
+    name:"Subscriptions", lob:"OC", status:"Blocked", prevStatus:"Blocked",
+    phase:"In Tech", dueOn:"", baseline:"Apr 23, 2026", eng:64,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Blocked by 2U for Q2 — waiting on 2U updates and next steps to proceed. Now past baseline with no due date and engineering at 64%. Next step: get a specific commitment from 2U on timeline and next action.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900350",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-8050"
+  },
+  {
+    name:"Comparison Tool", lob:"Marketplace", status:"On Track", prevStatus:"Off Track",
+    phase:"Ready To Launch", dueOn:"Apr 23", baseline:"Apr 01, 2026", eng:100,
+    rebaselined:false, statusChange:"Off Track → On Track", twoU:false,
+    tldr:"Recovered to On Track. PDP is complete and ready to launch pending prod deployment. Search eventing issue was the last blocker — now resolved. Targeting Apr 23 launch.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900322",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AF1Q68N76",
+    jira:"https://redventures.atlassian.net/browse/EDUN-9262"
+  },
+  {
+    name:"Superlatives on Product Cards", lob:"Marketplace", status:"On Track", prevStatus:"On Track",
+    phase:"Ready To Launch", dueOn:"Apr 23", baseline:"Apr 07, 2026", eng:100,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Eventing QA complete. Sorting inconsistency on search confirmed not a launch blocker. Ready to launch Apr 23.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213184286940235",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AG22U9EUB",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10043"
+  },
+  {
+    name:"Upgrade LMS Upselling", lob:"Marketplace", status:"On Track", prevStatus:"Off Track",
+    phase:"Ready To Launch", dueOn:"Apr 23", baseline:"Apr 14, 2026", eng:100,
+    rebaselined:false, statusChange:"Off Track → On Track", twoU:true,
+    tldr:"Recovered to On Track. All internal blockers resolved. 2U dependency was the final blocker — Marilyn reached out to Max and QA can now proceed. Targeting Apr 23 launch.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213184286940223",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AFT1029U7",
+    jira:"https://redventures.atlassian.net/browse/EDUN-9810"
+  },
+  {
+    name:"Straight to Checkout", lob:"OC", status:"On Track", prevStatus:"On Track",
+    phase:"Ready To Launch", dueOn:"Apr 30", baseline:"Apr 07, 2026", eng:100,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"QA active — CE team is working through the straight-to-checkout path. Eventing QA links shared and being reviewed. Targeting Apr 30.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213436797746802",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AJPEQ817F",
+    jira:"https://redventures.atlassian.net/browse/EDUN-9765"
+  },
+  {
+    name:"Redesign Promo Banner", lob:"OC", status:"On Track", prevStatus:"On Track",
+    phase:"In Tech", dueOn:"May 05", baseline:"Mar 11, 2026", eng:45,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"New dev resource took over after team illness pushed the timeline. QA on hold until dev and Figma specs are better aligned. On track for May 5.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900311",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AFTPJBVS7",
+    jira:"https://redventures.atlassian.net/browse/EDUN-9264"
+  },
+  {
+    name:"Shift Post Lead ULRs to RV Experiences", lob:"Degrees", status:"On Track", prevStatus:"",
+    phase:"In Tech", dueOn:"May 12", baseline:"May 12, 2026", eng:0,
+    rebaselined:false, statusChange:"", twoU:true,
+    tldr:"Newly added to roadmap. Engineering yet to start. Has 2U dependency. Targeting May 12.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526582",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-11011"
+  },
+  {
+    name:"Promo on LMS/LD", lob:"Marketplace", status:"On Track", prevStatus:"",
+    phase:"In Creative", dueOn:"May 20", baseline:"May 20, 2026", eng:0,
+    rebaselined:false, statusChange:"", twoU:true,
+    tldr:"In Creative phase. 2U needs to enable plug-in placements before this can launch. Targeting May 20.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070318169905",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-11150"
+  },
+  {
+    name:"Spanish Translations", lob:"Discovery", status:"On Track", prevStatus:"Not Started",
+    phase:"In Tech", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:13,
+    rebaselined:false, statusChange:"Not Started → On Track", twoU:false,
+    tldr:"Moved from Not Started to On Track this week. Engineering underway at 13%. Targeting Jul 13.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900337",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AB63K0B0U",
+    jira:"https://redventures.atlassian.net/browse/EDUN-9263"
+  },
+  {
+    name:"CYT Airline Module (3 offerings)", lob:"OC", status:"On Track", prevStatus:"On Track",
+    phase:"Complete", dueOn:"Apr 22", baseline:"Mar 31, 2026", eng:94,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Launched this week. Events confirmed healthy in prod. Shipped Apr 22 against a Mar 31 baseline.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1213203339900295",
+    slack:"https://redventures.enterprise.slack.com/archives/C0AFT1BCXAB",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10024"
+  },
+  {
+    name:"Geo Pricing (Expanding Scope)", lob:"eCommerce", status:"Not Started", prevStatus:"",
+    phase:"Not Started", dueOn:"May 05", baseline:"May 05, 2026", eng:6,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Scope expansion requires 2U partnerships team to secure partner approval before work can begin. Targeting May 5 but at risk given dependency.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070318169896",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10663"
+  },
+  {
+    name:"Currency Acceptance (Expanding Scope)", lob:"eCommerce", status:"Not Started", prevStatus:"",
+    phase:"Not Started", dueOn:"Jun 02", baseline:"Jun 02, 2026", eng:0,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Not yet started. Targeting Jun 2.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070318169914",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10662"
+  },
+  {
+    name:"LMS/LD Upgrade Modal Iterations", lob:"Marketplace", status:"Not Started", prevStatus:"",
+    phase:"Not Started", dueOn:"Jun 17", baseline:"Jun 17, 2026", eng:0,
+    rebaselined:false, statusChange:"", twoU:true,
+    tldr:"Not yet started. Has 2U dependency. Targeting Jun 17.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526548",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-11149"
+  },
+  {
+    name:"Comparison Tool Iterations (PDP + Search)", lob:"Marketplace", status:"Not Started", prevStatus:"",
+    phase:"Not Started", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:0,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Not yet started. Targeting Jul 13.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526572",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10628"
+  },
+  {
+    name:"Product Cards DE Configurability", lob:"Marketplace", status:"Not Started", prevStatus:"",
+    phase:"Not Started", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:0,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Not yet started. Targeting Jul 13.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526566",
+    slack:"",
+    jira:"https://redventures.atlassian.net/browse/EDUN-10643"
+  },
+  {
+    name:"Recommendation Spotlight + Data Science Model", lob:"Marketplace", status:"Not Started", prevStatus:"",
+    phase:"Not Started", dueOn:"Jul 13", baseline:"Jul 13, 2026", eng:null,
+    rebaselined:false, statusChange:"", twoU:false,
+    tldr:"Not yet started. Targeting Jul 13.",
+    asana:"https://app.asana.com/1/9354602449151/project/1209380408708128/task/1214070374526557",
+    slack:"",
+    jira:""
+  }
 ];
 
 
 const NEWLY_COMPLETED = [
+  { name:"CYT Airline Module (3 offerings)", lob:"OC", completedOn:"Apr 22, 2026" },
   { name:"Trending Industries (Learner Dashboard Empty State)", lob:"Marketplace", completedOn:"Apr 16, 2026" },
   { name:"Automated Solution for 3XX/4XX", lob:"Discovery", completedOn:"Apr 14, 2026" },
   { name:"2U Request: Multi-currency Payment Acceptance", lob:"eCommerce", completedOn:"Apr 16, 2026" }
 ];
 
 const ALL_COMPLETED = [
+  { name:"CYT Airline Module (3 offerings)", lob:"OC", completedOn:"Apr 22, 2026", isNew:true },
   { name:"Trending Industries (Learner Dashboard Empty State)", lob:"Marketplace", completedOn:"Apr 16, 2026", isNew:true },
   { name:"Automated Solution for 3XX/4XX", lob:"Discovery", completedOn:"Apr 14, 2026", isNew:true },
   { name:"2U Request: Multi-currency Payment Acceptance", lob:"eCommerce", completedOn:"Apr 16, 2026", isNew:true },
@@ -388,7 +578,10 @@ function renderInit(ini) {
     ini.jira  ? `<a class="ext-link link-jira"  href="${ini.jira}"  target="_blank" onclick="event.stopPropagation()">Jira &#8599;</a>`  : '',
   ].filter(Boolean).join('');
 
-  return `<div class="init" id="init-${idx}" onclick="toggleRow(${idx})" style="animation-delay:${(idx%12)*20}ms">
+  const isAttention = ['Off Track','Blocked','At Risk'].includes(ini.status);
+  const accentClass = ini.status === 'Off Track' ? 'accent-red' : ini.status === 'At Risk' ? 'accent-amber' : ini.status === 'Blocked' ? 'accent-blocked' : '';
+  const cardClass = isAttention ? `attention-card ${accentClass}` : 'compact';
+  return `<div class="init ${cardClass}" id="init-${idx}" onclick="toggleRow(${idx})" style="animation-delay:${(idx%12)*20}ms">
     <div class="init-top">
       <div class="init-body">
         <div class="init-name-row"><span class="row-chevron">&#8250;</span><div class="init-name">${ini.name}</div></div>
